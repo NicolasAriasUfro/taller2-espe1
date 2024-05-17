@@ -14,6 +14,9 @@ $event"/>
       mensaje está en su estado original</p>
     <p v-else class="mt-3 text-warning">El mensaje ha sido cambiado por
       el hijo</p>
+
+
+
     <!-- Lista de tareas con checkboxes -->
     <div class="mt-5">
       <h2>Lista de tareas</h2>
@@ -23,7 +26,7 @@ $event"/>
         -->
         <input type="checkbox" v-model="tarea.completada" :id="'tarea' +
 index" class="form-check-input">
-        <label :for="'tarea' + index" class="form-check-label">{{
+        <label :for="'tarea' + index" class="form-check-label" :class="{tachado:tarea.completada}">{{
             tarea.nombre
           }}</label>
         <!-- Mensaje condicional que se muestra cuando la tarea está
@@ -49,7 +52,8 @@ export default {
         {nombre: 'Tarea 1', completada: false},
         {nombre: 'Tarea 2', completada: false},
         {nombre: 'Tarea 3', completada: false}
-      ]
+      ],
+      claseSeleccionada: 'text-decoration: line-through ' // Clase CSS inicial
     }
   },
   methods: {
@@ -60,3 +64,8 @@ export default {
   }
 }
 </script>
+<style>
+.tachado {
+  text-decoration: line-through;
+}
+</style>
