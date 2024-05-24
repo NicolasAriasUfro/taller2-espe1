@@ -78,6 +78,7 @@ export default {
           .then(data=>{
             this.tareas = data;
           });
+
     },
     actualizarTarea(index) {
       fetch('http://localhost:3000/tareas', {
